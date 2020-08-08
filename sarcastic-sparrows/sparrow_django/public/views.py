@@ -11,4 +11,4 @@ def stock(request, stock_ticker):
     :return: An HttpResponse containing the raw QuerySet
     """
     list = Stock.objects.filter(ticker_symbol=stock_ticker)
-    return HttpResponse(list)
+    return HttpResponse(list[0].fig)

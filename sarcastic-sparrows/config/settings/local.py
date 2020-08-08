@@ -26,4 +26,7 @@ if os.getenv("USE_DOCKER", default="yes") == "yes":
 # django-extensions
 # ------------------------------------------------------------------------------
 # https://django-extensions.readthedocs.io/en/latest/installation_instructions.html#configuration
-INSTALLED_APPS += ["django_extensions"]  # noqa F405
+INSTALLED_APPS += [
+    "django_extensions",
+    "django_matplotlib",
+]  # noqa F405

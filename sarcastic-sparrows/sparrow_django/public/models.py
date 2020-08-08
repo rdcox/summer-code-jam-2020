@@ -1,4 +1,5 @@
 from django.db import models
+from django_matplotlib import MatplotlibFigureField
 
 
 class Stock(models.Model):
@@ -10,6 +11,7 @@ class Stock(models.Model):
     low = models.DecimalField(max_digits=20, decimal_places=5)
     close = models.DecimalField(max_digits=20, decimal_places=5)
     volume = models.IntegerField()
+    fig = MatplotlibFigureField(figure="my_figure")
 
     def __str__(self):
         return "Name: <%r> Date: <%r> High: <%.4f> Low: <%.4f>" % (
@@ -18,3 +20,7 @@ class Stock(models.Model):
             self.high,
             self.low,
         )
+
+
+# class Portfolio(models.Model):
+#
