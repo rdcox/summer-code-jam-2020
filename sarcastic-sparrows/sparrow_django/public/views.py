@@ -1,7 +1,8 @@
 from django.http import HttpResponse
-from django.views import generic
+from django.views.generic import ListView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-from public.models import Stock
+from .models import Stock
 
 
 def stock(request, stock_ticker):
@@ -16,7 +17,7 @@ def stock(request, stock_ticker):
     return HttpResponse(stock_list)
 
 
-class IndexView(generic.ListView):
+class IndexView(ListView):
     """
     lists all stocks
     """
@@ -26,3 +27,6 @@ class IndexView(generic.ListView):
     template_name = "stock_index.html"
     context_object_name = "stock_index"
     queryset = Stock.objects.filter(ticker_symbol="ebay")
+
+
+# class MarketView(LoginRequiredMixin, DetailView):
