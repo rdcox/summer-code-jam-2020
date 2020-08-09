@@ -29,4 +29,6 @@ class IndexView(ListView):
     queryset = Stock.objects.filter(ticker_symbol="ebay")
 
 
-# class MarketView(LoginRequiredMixin, DetailView):
+class MarketView(LoginRequiredMixin, DetailView):
+    login_url = '/login/'
+    redirect_field_name = 'market/'
